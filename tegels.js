@@ -17,7 +17,7 @@ class VierkanteTegel extends Tegel {
         this.#zijde = zijde;
     }
     getOppervlakte(){
-        return Number((this.#zijde * 4)).toFixed(2);
+        return Number((this.#zijde * this.#zijde)).toFixed(2);
     }
 }
 
@@ -41,7 +41,7 @@ class RondeTegel extends Tegel {
         this.#straal = straal;
     }
     getOppervlakte(){
-        return Number((this.#straal*this.#straal * 3.14)).toFixed(2);
+        return Number((this.#straal*this.#straal * Math.PI)).toFixed(2);
     }
 }
 
@@ -53,7 +53,7 @@ class BestelRegel {
         this.#aantal = aantal;
     }
     getOppervlakte(){        
-        return Number((this.#aantal * this.#tegel.getOppervlakte()).toFixed(2));
+        return Number((this.#aantal * this.#tegel.getOppervlakte()).toFixed(2));        
     }
     getTeBetalen(){        
         return this.#aantal * this.#tegel.getPrijs();
